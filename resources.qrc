@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>icons/108x108/Paradajz.png</file>
+        <file>icons/128x128/Paradajz.png</file>
+        <file>icons/256x256/Paradajz.png</file>
+        <file>icons/86x86/Paradajz.png</file>
+    </qresource>
+</RCC>
