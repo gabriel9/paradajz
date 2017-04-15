@@ -2,6 +2,21 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
+    <name>About</name>
+    <message>
+        <source>Pomodoro client for Sailfish OS.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;a href=&quot;http://en.wikipedia.org/wiki/Pomodoro_Technique&quot;&gt;Wiki article&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bojan &lt;gabriel9&gt; Kostic</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CoverPage</name>
     <message>
         <source>My Cover</source>
@@ -12,6 +27,17 @@
     <name>DoneTasks</name>
     <message>
         <source>Clear all</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewTask</name>
+    <message>
+        <source>Task title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Task description</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -50,10 +76,6 @@
     </message>
     <message>
         <source>Mark as finished</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mark as not finished</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

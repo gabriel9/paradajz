@@ -18,49 +18,7 @@ SilicaFlickable {
     property int remainingTimeSecconds: 60 * (stateString == 1 ? jobMinutes : stateString == 2 ? smallBreakMinutes : longBreakMinutes)
 
     Component.onCompleted: {
-        // DbWrapper.test.func1()
-            //var db = LocalStorage.openDatabaseSync("ParadajzDB", "1.0", "Paradajz DB.", 1000000)
-            //db.transaction(function(tx) {
-                //tx.executeSql("DROP TABLE IF EXISTS settings")
-                //tx.executeSql("CREATE TABLE IF NOT EXISTS settings(rule_name TEXT, value INTEGER)")
-                //tx.executeSql("INSERT INTO settings (rule_name, value) VALUES ('shortBreak', 5), ('longBreak', 10), ('taskTime', 25)")
 
-
-
-                // var setResutls = tx.executeSql("SELECT * FROM settings")
-                // var taskResults = tx.executeSql("SELECT * FROM tasks")
-
-//                var shortBreakRow = tx.executeSql("SELECT value FROM settings WHERE rule_name = 'shortBreak'")
-//                var longBreakRow = tx.executeSql("SELECT value FROM settings WHERE rule_name = 'longBreak'")
-//                var taskTimeRow = tx.executeSql("SELECT value FROM settings WHERE rule_name = 'taskTime'")
-
-//                var resetSettings = function() {
-//                    tx.executeSql("CREATE TABLE IF NOT EXISTS settings(rule_name TEXT, value INTEGER)")
-//                    tx.executeSql("CREATE TABLE IF NOT EXISTS tasks(task_name TEXT, task_description TEXT, task_status INTEGER)")
-//                }
-
-//                if(shortBreakRow.rows.length !== 0) {
-//                    mainPage.smallBreakMinutes = shortBreakRow.rows.item(0).value
-//                }
-
-//                if(longBreakRow.rows.length !== 0) {
-//                    mainPage.longBreakMinutes = longBreakRow.rows.item(0).value
-//                }
-
-//                if(taskTimeRow.rows.length !== 0) {
-//                    mainPage.jobMinutes = taskTimeRow.rows.item(0).value
-//                }
-
-                // console.log(tx.executeSql("SELECT value FROM settings WHERE rule_name = 'shortBreak'").rows.item(0).value)
-
-                // for(var i = 0; i < setResutls.rows.length; i++) {
-                //     console.log(setResutls.rows.item(i).rule_name + " " + setResutls.rows.item(i).value)
-                // }
-                // for(var i = 0; i < taskResults.rows.length; i++) {
-                //     console.log(taskResults.rows.item(i))
-                // }
-
-            //})
         }
 
     Timer {
@@ -76,9 +34,7 @@ SilicaFlickable {
     PullDownMenu {
         MenuItem {
             text: qsTr('About')
-            onClicked: {
-                onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
-            }
+            onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
         }
         MenuItem {
             text: qsTr("Settings")

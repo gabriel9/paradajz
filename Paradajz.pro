@@ -40,8 +40,10 @@ RESOURCES += \
     resources.qrc
 
 DISTFILES += \
-    qml/pages/MainPage.qml \
     qml/pages/DoneTasks.qml \
     qml/pages/TimerPage.qml \
     qml/pages/TodoTasks.qml \
-    qml/DbWrapper.js
+    qml/DbWrapper.js \
+    qml/pages/NewTask.qml \
+    qml/pages/MainPage.qml \
+    qml/pages/About.qml

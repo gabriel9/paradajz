@@ -9,6 +9,8 @@ var dbInterface = (function() {
     console.log("Init lib!")
     db.transaction(function(tx) {
         tx.executeSql("CREATE TABLE IF NOT EXISTS settings(rule_name TEXT, value INTEGER)")
+        //tx.executeSql("DROP TABLE IF EXISTS tasks")
+
         tx.executeSql("CREATE TABLE IF NOT EXISTS tasks(task_name TEXT, task_description TEXT, task_status INTEGER)")
 
         var settingRows = tx.executeSql("SELECT * FROM settings")
@@ -19,7 +21,7 @@ var dbInterface = (function() {
 
      var insertNewTask = function(taskName, taskDescription) { // TODO: add return
         db.transaction(function(tx) {
-            tx.executeSql("INSERT INTO tasks (task_name, task_description, task_status), VALUES(?, ?, ?)", taskName, taskDescription, 0)
+            tx.executeSql("INSERT INTO tasks (task_name, task_description, task_status) VALUES(?, ?, ?)", taskName, taskDescription, 0)
         })
     }
 
@@ -33,8 +35,25 @@ var dbInterface = (function() {
         db.transaction("DELETE FROM tasks WHERE task_id = ?", taskId)
     }
 
+    var getToDoTask = function() {
+
+        db.readTransaction(function(tx) {
+            console.log('get shit')
+            return 1 // tx.executeSql("SELECT rowid, task_name, task_description FROM tasks WHERE task_status == 0 ORDER BY rowid ASC")
+        })
+    }
+
+    var caller = function(func) {
+        db.transaction(func)
+    }
+
+
     return {
-    insertNewTask: insertNewTask
+        insertNewTask: insertNewTask,
+        updateTask: updateTask,
+        deleteTask: deleteTask,
+        getToDoTask: getToDoTask,
+        caller: caller
     }
 })()
 
