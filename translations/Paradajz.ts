@@ -26,7 +26,11 @@
 <context>
     <name>DoneTasks</name>
     <message>
-        <source>Clear all</source>
+        <source>Clear all.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mark as unfinished</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

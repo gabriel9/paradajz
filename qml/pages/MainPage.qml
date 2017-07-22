@@ -12,10 +12,24 @@ Page {
         height: parent.height
         itemWidth: width
         clip: true
-        model: VisualItemModel {
-                    TimerPage {}
-                    TodoTasks {}
-                    DoneTasks {}
-                }
+        currentIndex: 1
+
+        model: VisualItemModel {            
+            TodoTasks {
+                id: tt
+            }
+            TimerPage {
+                id: tp
+            }
+            DoneTasks {
+                id: dt
+            }
+            Component.onCompleted: {
+                tt.onTaskFinished.connect(dt.addNewFinished)
+                tt.onTaskActive.connect(tp.setActiveTask)
+
+            }
+
+        }
     }
 }

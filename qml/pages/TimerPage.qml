@@ -18,8 +18,18 @@ SilicaFlickable {
     property int remainingTimeSecconds: 60 * (stateString == 1 ? jobMinutes : stateString == 2 ? smallBreakMinutes : longBreakMinutes)
 
     Component.onCompleted: {
+        DbWrapper.dbInterface.caller(function(tx) {
+            var rows = tx.executeSql("SELECT rowid, task_name, task_description FROM tasks WHERE task_status == 1 ORDER BY rowid ASC").rows
+            if(rows.length > 0) {
+                taskText = rows.item(0).task_name
+            }
 
+        })
         }
+
+    function setActiveTask(tt) {
+        taskText = tt
+    }
 
     Timer {
         id: timer
@@ -85,7 +95,7 @@ SilicaFlickable {
             anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr((parseInt(remainingTimeSecconds / 60, 10).toString() < 10 ?  '0' : '') + parseInt(remainingTimeSecconds / 60, 10).toString())
             font.pixelSize: 350
-            color: Theme.highlightColor
+            color: Theme.primaryColor
             font.bold: true
         }
         Label {
@@ -93,7 +103,7 @@ SilicaFlickable {
             anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr((parseInt(remainingTimeSecconds % 60, 10).toString() < 10 ? '0' : '') + parseInt(remainingTimeSecconds % 60, 10).toString())
             font.pixelSize: 350
-            color: Theme.highlightColor
+            color: Theme.primaryColor
         }
         Label {
             id: labelTask
@@ -101,6 +111,7 @@ SilicaFlickable {
             text: qsTr(mainPage.taskText)
             font.pixelSize: Theme.fontSizeMedium
             color: Theme.secondaryColor
+
         }
     }
     PushUpMenu {
